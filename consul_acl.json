@@ -1,0 +1,12 @@
+{
+  "primary_datacenter": "vad",
+  "acl" : {
+    "enabled": true,
+    "default_policy": "deny",
+    "down_policy": "extend-cache",
+    "tokens" : {
+      "master" : "e0sdf7cc-daa2-b515-4d61-4a4234010p10",
+      "agent" : "e0sdf7cc-daa2-b515-4d61-4a4234010p10"
+    }
+  }
+}
