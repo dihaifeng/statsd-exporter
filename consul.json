@@ -1,6 +1,6 @@
 {
   "server": true,
-  "datacenter": "vad",
+  "datacenter": "ad",
   "data_dir": "/data0/consul",
   "node_name": "xxx-xxx-xxx-xxx",
   "bind_addr": "xx.xx.xx.xx",
