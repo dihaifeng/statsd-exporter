@@ -1,0 +1,12 @@
+[Unit]
+Description=Statsd-Exporter
+
+[Service]
+User=prometheus
+type=simple
+ExecStart=/data0/statsd-exporter/statsd_exporter --statsd.mapping-config=/data0/statsd-exporter/statsd-exporter.yml
+Restart=on-failure
+LimitNOFILE=150000
+
+[Install]
+WantedBy=multi-user.target
