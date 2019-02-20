@@ -1,0 +1,284 @@
+# version: statsd_exporter, version 0.9.0-rc3
+mappings:
+  - match: consul.consul.*.runtime.*
+    match_type: regex
+    name: "consul_runtime"
+    type: "$2"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.runtime.total_gc_pause_ns
+    name: "consul_runtime_total_gc_pause_ns"
+    type: "$2"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.health.service.query-tag.*.*.*
+    name: "consul_health_service_query_tag"
+    query: "$1.$2.$3"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.health.service.query-tag.*.*.*.*
+    name: "consul_health_service_query_tag"
+    query: "$1.$2.$3.$4"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.health.service.query-tag.*.*.*.*.*
+    name: "consul_health_service_query_tag"
+    query: "$1.$2.$3.$4.$5"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.health.service.query-tag.*.*.*.*.*.*
+    name: "consul_health_service_query_tag"
+    query: "$1.$2.$3.$4.$5.$6"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.health.service.query-tag.*.*.*.*.*.*.*
+    name: "consul_health_service_query_tag"
+    query: "$1.$2.$3.$4.$5.$6.$7"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.health.service.query-tag.*.*.*.*.*.*.*.*
+    name: "consul_health_service_query_tag"
+    query: "$1.$2.$3.$4.$5.$6.$7.$8"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.health.service.query-tag.*.*.*.*.*.*.*.*.*
+    name: "consul_health_service_query_tag"
+    query: "$1.$2.$3.$4.$5.$6.$7.$8.$9"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.health.service.query-tag.*.*.*.*.*.*.*.*.*.*
+    name: "consul_health_service_query_tag"
+    query: "$1.$2.$3.$4.$5.$6.$7.$8.$9.$10"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.health.service.query-tag.*.*.*.*.*.*.*.*.*.*.*
+    name: "consul_health_service_query_tag"
+    query: "$1.$2.$3.$4.$5.$6.$7.$8.$9.$10.$11"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.health.service.query-tag.*.*.*.*.*.*.*.*.*.*.*.*
+    name: "consul_health_service_query_tag"
+    query: "$1.$2.$3.$4.$5.$6.$7.$8.$9.$10.$11.$12"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.fsm.persist
+    name: "consul_fsm_persist"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.catalog.deregister
+    name: "consul_catalog_deregister"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.http.PUT.v1.agent.service_register
+    name: "consul_http_PUT_v1_agent_service_register"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.http.GET.v1.kv.*
+    name: "consul_http_GET_v1_kv"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.http.GET.v1.internal.ui.nodes
+    name: "consul_http_GET_v1_internal_ui_nodes"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.http.GET.v1.internal.ui.node.*
+    name: "consul_http_GET_v1_internal_ui_node"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.http.GET.v1.health.service.*
+    match_type: regex
+    name: "consul_http_GET_v1_health_service"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.http.GET.v1.catalog.datacenters
+    name: "consul_http_GET_v1_catalog_datacenters"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.http.GET.v1.acl.list
+    name: "consul_http_GET_v1_acl_list"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.dns.domain_query.*.*.*.*.*
+    match_type: regex
+    name: "consul_dns_domain_query"
+    query: "$1.$2.$3.$4.$5"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.health.service.not-found.*
+    name: "consul_health_service_not_found"
+    host: "{{ inventory_hostname }}"
+    query: "$1"
+
+  - match: consul.consul.health.service.query.*
+    name: "consul_health_service_query"
+    query: "$1"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.*.memberlist.health.score
+    match_type: regex
+    name: "consul_memberlist_health_score"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.serf.queue.*
+    name: "consul_serf_events"
+    type: "$1"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.serf.snapshot.appendLine
+    name: "consul_serf_snapshot_appendLine"
+    type: "$1"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.serf.coordinate.adjustment-ms
+    name: "consul_serf_coordinate_adjustment_ms"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.rpc.query
+    name: "consul_rpc_query"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.*.consul.session_ttl.active
+    match_type: regex
+    name: "consul_session_ttl_active"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.raft.rpc.*
+    name: "consul_raft_rpc"
+    type: "$1"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.raft.rpc.appendEntries.storeLogs
+    name: "consul_raft_rpc_appendEntries_storeLogs"
+    type: "$1"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.raft.fsm.apply
+    name: "consul_raft_fsm_apply"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.raft.leader.lastContact
+    name: "consul_raft_leader_lastcontact"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.raft.leader.dispatchLog
+    name: "consul_raft_leader_dispatchLog"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.raft.commitTime
+    name: "consul_raft_commitTime"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.raft.replication.appendEntries.logs.*.*.*.*
+    name: "consul_raft_replication_appendEntries_logs"
+    host: "{{ inventory_hostname }}"
+    query: "${1}.${2}.${3}.${4}"
+
+  - match: consul.raft.replication.appendEntries.rpc.*.*.*.*.*.*
+    match_type: regex
+    name: "consul_raft_replication_appendEntries_rpc"
+    host: "{{ inventory_hostname }}"
+    query: "${1}.${2}.${3}.${4}.${5}.{6}"
+
+  - match: consul.raft.replication.heartbeat.*.*.*.*.*.*
+    match_type: regex
+    name: "consul_raft_replication_heartbeat"
+    host: "{{ inventory_hostname }}"
+    query: "${1}.${2}.${3}.${4}.${5}.${6}"
+
+  - match: consul.consul.rpc.request
+    name: "consul_rpc_requests"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.rpc.accept_conn
+    name: "consul_rpc_accept_conn"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.memberlist.udp.*
+    name: "consul_memberlist_udp"
+    type: "$1"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.memberlist.tcp.*
+    name: "consul_memberlist_tcp"
+    type: "$1"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.memberlist.gossip
+    name: "consul_memberlist_gossep"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.memberlist.probeNode
+    name: "consul_memberlist_probenode"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.memberlist.pushPullNode
+    name: "consul_memberlist_pushpullnode"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.http.GET.v1.catalog.datacenters
+    name: "consul_http_GET_catalog_datacenters"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.http.GET.v1.coordinate.nodes
+    name: "consul_http_GET_coordinate_nodes"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.http.GET.v1.health.service.*
+    name: "consul_http_GET_health_service"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.http.GET.v1.internal.ui.nodes.*
+    name: "consul_http_GET_internal_ui_nodes"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.http.GET.v1.internal.ui.services
+    name: "consul_http_GET_internal_ui_services"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.http.GET.v1.session.node.*
+    name: "consul_http_GET_session_node"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.http.GET.v1.kv.*.*.*
+    name: "consul_http_GET_kv"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.leader.barrier
+    name: "consul_leader_barrier"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.leader.reconcileMember
+    name: "consul_leader_reconcileMember"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.leader.reconcile
+    name: "consul_leader_reconcile"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.fsm.coordinate.batch-update
+    name: "consul_fsm_coordinate_batch_update"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.fsm.register
+    name: "consul_fsm_register"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.fsm.deregister
+    name: "consul_fsm_deregister"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.catalog.register
+    name: "consul_catalog_register"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.catalog.deregister
+    name: "consul_catalog_deregister"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.fsm.tombstone.reap
+    name: "consul_fsm_tombstone_reap"
+    host: "{{ inventory_hostname }}"
+
+  - match: consul.consul.leader.reapTombstones
+    name: "consul_leader_reapTombstones"
+    host: "{{ inventory_hostname }}"
